@@ -21,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
         </button>
       </div>
       <div className="flex items-center">
-        <span className="text-gray-600">مرحباً، {auth?.user?.username}</span>
+        <span className="text-gray-600 font-semibold">مرحباً، {auth?.user?.username}</span>
       </div>
     </header>
   );
