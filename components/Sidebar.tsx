@@ -6,6 +6,7 @@ import ClipboardListIcon from './icons/ClipboardListIcon';
 import CogIcon from './icons/CogIcon';
 import LogoutIcon from './icons/LogoutIcon';
 import TruckIcon from './icons/TruckIcon';
+import UserCircleIcon from './icons/UserCircleIcon';
 
 interface SidebarProps {
     isSidebarOpen: boolean;
@@ -27,6 +28,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, closeSidebar }) => {
         { to: '/statistics', icon: <ChartBarIcon className="w-6 h-6" />, text: 'الإحصائيات' },
         { to: '/all-shipments', icon: <ClipboardListIcon className="w-6 h-6" />, text: 'كل الشحنات' },
         { to: '/manage-companies', icon: <CogIcon className="w-6 h-6" />, text: 'إدارة الشركات' },
+        { to: '/profile', icon: <UserCircleIcon className="w-6 h-6" />, text: 'الملف الشخصي' },
     ];
     
     const activeLinkClass = "bg-primary-100 text-primary-600";

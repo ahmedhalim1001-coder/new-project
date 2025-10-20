@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
@@ -8,6 +7,7 @@ import DashboardLayout from './pages/DashboardLayout';
 import Statistics from './pages/Statistics';
 import AllShipments from './pages/AllShipments';
 import ManageCompanies from './pages/ManageCompanies';
+import Profile from './pages/Profile';
 
 const PrivateRoute: React.FC<{ children: React.ReactElement }> = ({ children }) => {
   const auth = useAuth();
@@ -35,6 +35,7 @@ const App: React.FC = () => {
             <Route path="statistics" element={<Statistics />} />
             <Route path="all-shipments" element={<AllShipments />} />
             <Route path="manage-companies" element={<ManageCompanies />} />
+            <Route path="profile" element={<Profile />} />
           </Route>
         </Routes>
       </HashRouter>
