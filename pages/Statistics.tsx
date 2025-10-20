@@ -37,9 +37,9 @@ const Statistics: React.FC = () => {
 
   return (
     <div className="container mx-auto space-y-6">
-      <h1 className="text-3xl font-bold text-gray-800">الإحصائيات اليومية لتاريخ {filterDate}</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">الإحصائيات اليومية لتاريخ {filterDate}</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <StatCard title="إجمالي شحنات اليوم" value={totalShipmentsToday} icon={<ClipboardListIcon className="w-8 h-8 text-primary-600" />} />
         <StatCard title="الباركود المكرر" value={duplicateCountToday} icon={<ChartBarIcon className="w-8 h-8 text-primary-600" />} />
       </div>
@@ -47,17 +47,17 @@ const Statistics: React.FC = () => {
       <div className="bg-white p-6 rounded-lg shadow-md">
         <div className="flex flex-col md:flex-row justify-between items-center mb-4 gap-4">
           <h2 className="text-xl font-semibold text-gray-700">شحنات اليوم</h2>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
             <input 
               type="date"
               value={filterDate}
               onChange={e => setFilterDate(e.target.value)}
-              className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5"
+              className="w-full sm:w-auto bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5"
             />
             <select
               value={filterCompany}
               onChange={e => setFilterCompany(e.target.value)}
-              className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5"
+              className="w-full sm:w-auto bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5"
             >
               <option value="">كل الشركات</option>
               {mockCompanies.map(company => (

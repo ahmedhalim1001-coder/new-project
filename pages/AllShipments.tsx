@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { mockShipments, mockCompanies } from '../data/mockData';
 import { Shipment } from '../types';
@@ -31,7 +30,7 @@ const AllShipments: React.FC = () => {
 
   return (
     <div className="container mx-auto space-y-6">
-      <h1 className="text-3xl font-bold text-gray-800">كل الشحنات</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">كل الشحنات</h1>
       
       <div className="bg-white p-6 rounded-lg shadow-md">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
@@ -41,9 +40,9 @@ const AllShipments: React.FC = () => {
               placeholder="ابحث بالباركود..."
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              className="w-full bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5 pl-10"
+              className="w-full bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5 pr-10"
             />
-             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+             <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
               <SearchIcon className="w-5 h-5 text-gray-500" />
             </div>
           </div>

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { mockCompanies } from '../data/mockData';
 import { Company } from '../types';
@@ -20,7 +19,7 @@ const ManageCompanies: React.FC = () => {
     e.preventDefault();
     if (newCompanyName.trim()) {
       const newCompany: Company = {
-        id: Math.max(...companies.map(c => c.id)) + 1,
+        id: companies.length > 0 ? Math.max(...companies.map(c => c.id)) + 1 : 1,
         company_name: newCompanyName,
         status: 'active',
       };
@@ -32,7 +31,7 @@ const ManageCompanies: React.FC = () => {
 
   return (
     <div className="container mx-auto space-y-6">
-      <h1 className="text-3xl font-bold text-gray-800">إدارة شركات الشحن</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">إدارة شركات الشحن</h1>
 
       <div className="bg-white p-6 rounded-lg shadow-md">
         <div className="flex justify-between items-center mb-4">
@@ -46,16 +45,16 @@ const ManageCompanies: React.FC = () => {
         </div>
 
         {isAdding && (
-          <form onSubmit={handleAddCompany} className="mb-6 p-4 bg-gray-50 rounded-lg flex gap-4 items-center">
+          <form onSubmit={handleAddCompany} className="mb-6 p-4 bg-gray-50 rounded-lg flex flex-col sm:flex-row gap-4">
             <input
               type="text"
               value={newCompanyName}
               onChange={(e) => setNewCompanyName(e.target.value)}
               placeholder="أدخل اسم الشركة الجديدة"
-              className="flex-grow bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5"
+              className="w-full sm:flex-1 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5"
               required
             />
-            <button type="submit" className="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700">حفظ الشركة</button>
+            <button type="submit" className="w-full sm:w-auto shrink-0 px-4 py-2.5 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700">حفظ الشركة</button>
           </form>
         )}
 
