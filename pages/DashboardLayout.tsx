@@ -5,7 +5,7 @@ import Header from '../components/Header';
 
 const DashboardLayout: React.FC = () => {
   return (
-    <div className="flex h-screen bg-gray-100 dark:bg-gray-900 font-sans" dir="rtl">
+    <div className="flex h-screen bg-gray-100 font-sans" dir="rtl">
       <Sidebar />
       <div className="flex flex-col flex-1 overflow-hidden">
         <Header />

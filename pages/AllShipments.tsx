@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import { mockShipments, mockCompanies } from '../data/mockData';
 import { Shipment } from '../types';
@@ -30,9 +31,9 @@ const AllShipments: React.FC = () => {
 
   return (
     <div className="container mx-auto space-y-6">
-      <h1 className="text-3xl font-bold text-gray-800 dark:text-white">كل الشحنات</h1>
+      <h1 className="text-3xl font-bold text-gray-800">كل الشحنات</h1>
       
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+      <div className="bg-white p-6 rounded-lg shadow-md">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           <div className="relative">
             <input
@@ -40,16 +41,16 @@ const AllShipments: React.FC = () => {
               placeholder="ابحث بالباركود..."
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5 pl-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+              className="w-full bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5 pl-10"
             />
              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-              <SearchIcon className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+              <SearchIcon className="w-5 h-5 text-gray-500" />
             </div>
           </div>
           <select
             value={filterCompany}
             onChange={e => setFilterCompany(e.target.value)}
-            className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+            className="w-full bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5"
           >
             <option value="">كل الشركات</option>
             {mockCompanies.map(company => (
@@ -60,19 +61,19 @@ const AllShipments: React.FC = () => {
             type="date"
             value={startDate}
             onChange={e => setStartDate(e.target.value)}
-            className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+            className="w-full bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5"
             />
           <input
             type="date"
             value={endDate}
             onChange={e => setEndDate(e.target.value)}
-            className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+            className="w-full bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5"
           />
         </div>
         
         <div className="overflow-x-auto">
-          <table className="w-full text-sm text-right text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <table className="w-full text-sm text-right text-gray-500">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
               <tr>
                 <th scope="col" className="px-6 py-3">الشركة</th>
                 <th scope="col" className="px-6 py-3">الباركود</th>
@@ -82,8 +83,8 @@ const AllShipments: React.FC = () => {
             </thead>
             <tbody>
               {filteredShipments.map((shipment: Shipment) => (
-                <tr key={shipment.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{getCompanyName(shipment.company_id)}</td>
+                <tr key={shipment.id} className="bg-white border-b hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">{getCompanyName(shipment.company_id)}</td>
                   <td className="px-6 py-4">{shipment.barcode}</td>
                   <td className="px-6 py-4">{shipment.date}</td>
                   <td className="px-6 py-4">{shipment.count}</td>
@@ -91,7 +92,7 @@ const AllShipments: React.FC = () => {
               ))}
               {filteredShipments.length === 0 && (
                 <tr>
-                    <td colSpan={4} className="text-center py-8 text-gray-500 dark:text-gray-400">لم يتم العثور على شحنات للمعايير المحددة.</td>
+                    <td colSpan={4} className="text-center py-8 text-gray-500">لم يتم العثور على شحنات للمعايير المحددة.</td>
                 </tr>
                )}
             </tbody>

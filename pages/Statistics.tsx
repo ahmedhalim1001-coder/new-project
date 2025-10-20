@@ -37,27 +37,27 @@ const Statistics: React.FC = () => {
 
   return (
     <div className="container mx-auto space-y-6">
-      <h1 className="text-3xl font-bold text-gray-800 dark:text-white">الإحصائيات اليومية لتاريخ {filterDate}</h1>
+      <h1 className="text-3xl font-bold text-gray-800">الإحصائيات اليومية لتاريخ {filterDate}</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <StatCard title="إجمالي شحنات اليوم" value={totalShipmentsToday} icon={<ClipboardListIcon className="w-8 h-8 text-primary-600" />} />
         <StatCard title="الباركود المكرر" value={duplicateCountToday} icon={<ChartBarIcon className="w-8 h-8 text-primary-600" />} />
       </div>
 
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+      <div className="bg-white p-6 rounded-lg shadow-md">
         <div className="flex flex-col md:flex-row justify-between items-center mb-4 gap-4">
-          <h2 className="text-xl font-semibold text-gray-700 dark:text-gray-200">شحنات اليوم</h2>
+          <h2 className="text-xl font-semibold text-gray-700">شحنات اليوم</h2>
           <div className="flex items-center gap-4">
             <input 
               type="date"
               value={filterDate}
               onChange={e => setFilterDate(e.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+              className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5"
             />
             <select
               value={filterCompany}
               onChange={e => setFilterCompany(e.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+              className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5"
             >
               <option value="">كل الشركات</option>
               {mockCompanies.map(company => (
@@ -68,8 +68,8 @@ const Statistics: React.FC = () => {
         </div>
         
         <div className="overflow-x-auto">
-          <table className="w-full text-sm text-right text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <table className="w-full text-sm text-right text-gray-500">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
               <tr>
                 <th scope="col" className="px-6 py-3">الشركة</th>
                 <th scope="col" className="px-6 py-3">الباركود</th>
@@ -79,8 +79,8 @@ const Statistics: React.FC = () => {
             </thead>
             <tbody>
               {filteredShipments.map((shipment: Shipment) => (
-                <tr key={shipment.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{getCompanyName(shipment.company_id)}</td>
+                <tr key={shipment.id} className="bg-white border-b hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">{getCompanyName(shipment.company_id)}</td>
                   <td className="px-6 py-4">{shipment.barcode}</td>
                   <td className="px-6 py-4">{shipment.date}</td>
                   <td className="px-6 py-4">{shipment.count}</td>
@@ -88,7 +88,7 @@ const Statistics: React.FC = () => {
               ))}
                {filteredShipments.length === 0 && (
                 <tr>
-                    <td colSpan={4} className="text-center py-8 text-gray-500 dark:text-gray-400">لم يتم العثور على شحنات للمعايير المحددة.</td>
+                    <td colSpan={4} className="text-center py-8 text-gray-500">لم يتم العثور على شحنات للمعايير المحددة.</td>
                 </tr>
                )}
             </tbody>

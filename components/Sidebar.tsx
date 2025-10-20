@@ -24,15 +24,15 @@ const Sidebar: React.FC = () => {
         { to: '/manage-companies', icon: <CogIcon className="w-6 h-6" />, text: 'إدارة الشركات' },
     ];
     
-    const activeLinkClass = "bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300";
-    const inactiveLinkClass = "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700";
+    const activeLinkClass = "bg-primary-100 text-primary-600";
+    const inactiveLinkClass = "text-gray-600 hover:bg-gray-100";
 
 
     return (
-        <aside className="w-64 bg-white dark:bg-gray-800 flex flex-col h-screen shadow-lg flex-shrink-0">
-            <div className="flex items-center justify-center h-20 border-b dark:border-gray-700">
+        <aside className="w-64 bg-white flex flex-col h-screen shadow-lg flex-shrink-0">
+            <div className="flex items-center justify-center h-20 border-b">
                 <TruckIcon className="w-10 h-10 text-primary-600" />
-                <h1 className="text-2xl font-bold mr-2 text-gray-800 dark:text-white">شحناتي</h1>
+                <h1 className="text-2xl font-bold mr-2 text-gray-800">شحناتي</h1>
             </div>
             <nav className="flex-grow p-4 space-y-2">
                 {navLinks.map((link) => (
@@ -48,10 +48,10 @@ const Sidebar: React.FC = () => {
                     </NavLink>
                 ))}
             </nav>
-            <div className="p-4 border-t dark:border-gray-700">
+            <div className="p-4 border-t">
                 <button
                     onClick={handleLogout}
-                    className="flex items-center w-full p-3 text-gray-600 rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    className="flex items-center w-full p-3 text-gray-600 rounded-lg hover:bg-gray-100"
                 >
                     <LogoutIcon className="w-6 h-6" />
                     <span className="mr-4 font-medium">تسجيل الخروج</span>
